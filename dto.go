@@ -127,3 +127,17 @@ type MediaURL struct {
 	FileSize         int64  `json:"file_size"`
 	ID               string `json:"id"`
 }
+
+
+// ReplyButton is a WhatsApp interactive reply button (type=reply).
+type ReplyButton struct {
+	ID    string // payload id returned on button_reply
+	Title string // label shown to the user (max 20 chars on Cloud API)
+}
+
+// SendButtonsInput sends an interactive message with up to 3 reply buttons.
+type SendButtonsInput struct {
+	To      string
+	Body    string
+	Buttons []ReplyButton
+}
